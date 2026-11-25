@@ -1,0 +1,3 @@
+from app.routers.核心 import 路由 as api
+
+__all__ = ["api"]

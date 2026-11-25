@@ -1,0 +1,192 @@
+:root {
+  --轨: #121821;
+  --轨线: #243041;
+  --画布: #e8edf4;
+  --块: #f7f9fc;
+  --块深: #dfe6f0;
+  --线: #c5d0de;
+  --字: #152033;
+  --淡: #5a6b82;
+  --焰: #d97706;
+  --焰弱: rgba(217, 119, 6, 0.14);
+  --水: #1d6f8a;
+  --通: #2f7d57;
+  --败: #b33b3b;
+  --通底: rgba(47, 125, 87, 0.12);
+  --败底: rgba(179, 59, 59, 0.1);
+  --牌: "ZCOOL XiaoWei", "STSong", "SimSun", serif;
+  --正: "DM Sans", "Source Han Sans SC", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: var(--正);
+}
+* { box-sizing: border-box }
+body {
+  margin: 0;
+  color: var(--字);
+  background:
+    linear-gradient(135deg, rgba(29, 111, 138, 0.06), transparent 42%),
+    linear-gradient(320deg, rgba(217, 119, 6, 0.05), transparent 40%),
+    var(--画布);
+}
+.壳 { min-height: 100vh; display: grid; grid-template-columns: 220px 1fr }
+.轨 {
+  background: linear-gradient(180deg, #182131 0%, var(--轨) 55%, #0e131b 100%);
+  color: #d7e0ec;
+  border-right: 1px solid var(--轨线);
+  padding: 1.25rem 0.9rem 1.5rem;
+  display: flex; flex-direction: column; gap: 1.1rem;
+  position: sticky; top: 0; height: 100vh;
+}
+.牌名 {
+  font-family: var(--牌);
+  font-size: 1.85rem;
+  letter-spacing: 0.18em;
+  color: #f3c27a;
+  padding: 0 0.35rem;
+}
+.牌骨 {
+  color: #8ea0b8;
+  font-size: 0.72rem;
+  line-height: 1.55;
+  padding: 0 0.35rem 0.4rem;
+  border-bottom: 1px solid var(--轨线);
+}
+.轨 nav { display: flex; flex-direction: column; gap: 0.2rem; overflow-y: auto }
+.轨 a {
+  color: #9fb0c5;
+  text-decoration: none;
+  padding: 0.55rem 0.7rem;
+  border-radius: 6px;
+  font-size: 0.88rem;
+  border: 1px solid transparent;
+}
+.轨 a:hover { color: #e8eef6; background: rgba(255,255,255,0.04) }
+.轨 a.亮 {
+  color: #fff8eb;
+  background: rgba(217, 119, 6, 0.22);
+  border-color: rgba(217, 119, 6, 0.35);
+}
+.轨 a.次 { font-size: 0.8rem; color: #7d8ea5 }
+.轨 a.次.亮 { color: #d7e0ec; background: rgba(255,255,255,0.06); border-color: var(--轨线) }
+.主 { padding: 1.4rem 1.6rem 2.4rem; max-width: 1120px }
+.题 {
+  font-family: var(--牌);
+  font-size: 1.55rem;
+  margin: 0 0 0.25rem;
+  letter-spacing: 0.08em;
+}
+.述 { color: var(--淡); margin: 0 0 1.1rem; font-size: 0.9rem; line-height: 1.55; max-width: 48rem }
+.阶条 { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0.55rem; margin-bottom: 1.15rem }
+.阶 {
+  background: var(--块);
+  border: 1px solid var(--线);
+  border-radius: 2px 10px 2px 10px;
+  padding: 0.7rem 0.75rem;
+  box-shadow: 0 8px 18px rgba(21, 32, 51, 0.04);
+}
+.阶 .序 { color: var(--焰); font-size: 0.7rem; letter-spacing: 0.1em; margin-bottom: 0.15rem }
+.阶 b { display: block; font-size: 1.25rem; font-variant-numeric: tabular-nums }
+.阶 span { color: var(--淡); font-size: 0.74rem }
+.行 { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.95rem; align-items: center }
+button {
+  background: var(--焰);
+  color: #fffaf2;
+  border: 0;
+  padding: 0.45rem 0.95rem;
+  border-radius: 999px;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+}
+button:hover { filter: brightness(1.06) }
+button.次 {
+  background: transparent;
+  border: 1px solid var(--线);
+  color: var(--字);
+  font-weight: 500;
+}
+button.水 { background: var(--水); color: #fff }
+input, select {
+  border: 1px solid var(--线);
+  background: #fff;
+  border-radius: 8px;
+  padding: 0.4rem 0.6rem;
+  font: inherit;
+  color: var(--字);
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  background: var(--块);
+  border: 1px solid var(--线);
+  border-radius: 10px;
+  overflow: hidden;
+}
+th, td { border-bottom: 1px solid var(--线); padding: 0.5rem 0.48rem; text-align: left; vertical-align: top }
+th { color: var(--淡); font-weight: 600; background: var(--块深) }
+.讯 { margin: 0.5rem 0; color: var(--淡) }
+.空态 {
+  padding: 1.3rem;
+  border: 1px dashed var(--线);
+  border-radius: 10px;
+  color: var(--淡);
+  text-align: center;
+  margin: 0.5rem 0 1rem;
+  background: var(--块);
+}
+.提示条 {
+  background: var(--焰弱);
+  border: 1px solid #efc995;
+  color: var(--字);
+  padding: 0.75rem 0.95rem;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  font-size: 0.88rem;
+}
+.徽章 {
+  display: inline-block;
+  padding: 0.12rem 0.45rem;
+  border-radius: 999px;
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+.徽章.通 { background: var(--通底); color: var(--通) }
+.徽章.败 { background: var(--败底); color: var(--败) }
+.段 { margin-top: 1.25rem }
+.段题 { font-size: 0.9rem; margin: 0 0 0.55rem; color: var(--水); font-weight: 700 }
+
+/* 三日连环链证明 */
+.勾选 { display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.88rem; background: var(--块); border: 1px solid var(--线); border-radius: 999px; padding: 0.28rem 0.7rem; cursor: pointer }
+.勾选 input { padding: 0; margin: 0 }
+.链号输入 { min-width: 320px; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.82rem }
+.链号 { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.82rem; color: var(--水); user-select: all; word-break: break-all }
+.链号链接 { font-size: 0.85rem; color: var(--淡); text-decoration: none }
+.链号链接:hover { color: var(--水) }
+.链查条 { display: flex; gap: 0.55rem; align-items: center; flex-wrap: wrap; margin: 0.4rem 0 0.8rem }
+.淡 { color: var(--淡); font-size: 0.86rem }
+.淡注 { color: var(--淡); font-size: 0.76rem; margin-top: 0.15rem }
+.证卡 { background: var(--块); border: 1px solid var(--线); border-left: 4px solid var(--水); border-radius: 10px; padding: 0.9rem 1rem; margin: 0.6rem 0 1rem; box-shadow: 0 8px 18px rgba(21,32,51,0.05) }
+.证卡.紧 { padding: 0.65rem 0.85rem }
+.证头 { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; align-items: flex-start }
+.证次 { margin-top: 0.4rem; font-size: 0.88rem; display: flex; align-items: center; flex-wrap: wrap; gap: 2px }
+.证meta { color: var(--淡); font-size: 0.76rem; text-align: right; line-height: 1.6 }
+.败因 { color: var(--败); font-size: 0.82rem; margin: 0.35rem 0; line-height: 1.5 }
+.小阶 { display: inline-block; background: var(--块深); border-radius: 999px; padding: 0.14rem 0.6rem; font-size: 0.76rem; font-weight: 600 }
+.小阶.通 { background: var(--通底); color: var(--通) }
+.小阶.败 { background: var(--败底); color: var(--败) }
+.指纹行 { display: flex; gap: 0.45rem; align-items: baseline; margin-top: 0.45rem; font-size: 0.78rem; color: var(--淡) }
+.指纹行 code { word-break: break-all; background: var(--块深); border-radius: 6px; padding: 0.12rem 0.4rem; color: var(--字) }
+.短指纹 { font-size: 0.76rem }
+.数通 { color: var(--通); font-variant-numeric: tabular-nums }
+.数败 { color: var(--败); font-weight: 700; font-variant-numeric: tabular-nums }
+tr.可点 { cursor: pointer }
+tr.可点:hover { background: rgba(29,111,138,0.06) }
+button.小钮 { padding: 0.2rem 0.6rem; font-size: 0.76rem }
+button.危 { background: transparent; border: 1px solid #e0b4b4; color: var(--败); font-weight: 600 }
+button.危:hover { background: var(--败底) }
+
+@media (max-width: 860px) {
+  .壳 { grid-template-columns: 1fr }
+  .轨 { position: relative; height: auto }
+  .阶条 { grid-template-columns: repeat(2, minmax(0, 1fr)) }
+}
